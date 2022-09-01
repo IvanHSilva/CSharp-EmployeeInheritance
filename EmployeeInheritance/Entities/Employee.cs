@@ -1,4 +1,6 @@
-﻿namespace EmployeeInheritance.Entities {
+﻿using System.Globalization;
+
+namespace EmployeeInheritance.Entities {
     public class Employee {
         // Attributes
         public string Name { get; set; }
@@ -17,6 +19,10 @@
         // Methods
         public virtual double Payment() {
             return Hours * ValuePerHour;
+        }
+
+        public override string ToString() {
+            return $"{Name} - $ {Payment().ToString("F2", CultureInfo.InvariantCulture)}";
         }
     }
 }
